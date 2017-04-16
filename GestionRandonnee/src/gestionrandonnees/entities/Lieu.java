@@ -53,5 +53,9 @@ public class Lieu {
         return "Lieu{" + "IdLieu=" + IdLieu + ", lat=" + lat + ", lng=" + lng + ", lieuText=" + lieuText + '}';
     }
 
+    public double getLongitude() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 	
 }
