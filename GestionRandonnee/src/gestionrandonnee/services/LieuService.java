@@ -35,8 +35,8 @@ public class LieuService {
                     .prepareStatement(req);
 
            
-            ste.setDouble(1, l.getLongitude());
-            ste.setDouble(2, l.getLatitude());
+            ste.setDouble(1, l.getLat());
+            ste.setDouble(2, l.getLng());
             ste.setString(3, l.getLieuText());
             ste.executeUpdate();
             /*executeUpdate methode d'ajout modification ou supression*/
@@ -51,9 +51,28 @@ public class LieuService {
         try {
             ste = ds.getConnection()
                     .prepareStatement(req);
-            ste.setDouble(1, l.getLongitude());
-            ste.setDouble(2, l.getLatitude());
+            ste.setDouble(1, l.getLat());
+            ste.setDouble(2, l.getLng());
             ste.setString(3, l.getLieuText());
+            ste.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LieuService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+       public void modifier(Lieu l, int id) {
+
+        try {
+
+            String req = "UPDATE lieu SET lat=?,lng=?,lieuText=? WHERE id =?";
+            ste = ds.getConnection()
+                    .prepareStatement(req);
+            ste.setDouble(1, l.getLat());
+            ste.setDouble(2, l.getLng());
+            ste.setString(3, l.getLieuText());
+            ste.setInt(4, l.getIdLieu());
+           
             ste.executeUpdate();
 
         } catch (SQLException ex) {
