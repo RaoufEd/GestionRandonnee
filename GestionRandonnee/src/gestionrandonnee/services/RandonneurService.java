@@ -25,20 +25,43 @@ public class RandonneurService {
 
     public void ajouter(Randonneur r) {
         String sql = "INSERT INTO randonneur  VALUES (null,?,?,?,?,?,?,?);";
-		try {
-			statement = datasource.getConnection().prepareStatement(sql);
-			statement.setString(1, r.getNomRandonneur());
-			statement.setString(2, r.getPrenomRandonneur());
-                        statement.setDate(3,r.getDateDeNaissance());
-                        statement.setInt(4, r.getIdLieu().getIdLieu());
-                        statement.setDate(5, r.getDateDeCreation());
-                        statement.setString(6, r.getEmailRandonneur());
-                        statement.setString(7, r.getPassword());
-			statement.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        try {
+            statement = datasource.getConnection().prepareStatement(sql);
+            statement.setString(1, r.getNomRandonneur());
+            statement.setString(2, r.getPrenomRandonneur());
+            statement.setDate(3, r.getDateDeNaissance());
+            statement.setInt(4, r.getIdLieu().getIdLieu());
+            statement.setDate(5, r.getDateDeCreation());
+            statement.setString(6, r.getEmailRandonneur());
+            statement.setString(7, r.getPassword());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void modifier(Randonneur r) {
+
+        String sql = ""
+                + "update personne set nom_randonneur = ? , prenom_randonneur = ?, "
+                + " date_de_naissance = ?,id_lieu = ?"
+                + " e_mail_randonneur = ?,mot_de_pass = ?"
+                + "where id_personne = ?";
+        try {
+            statement = datasource.getConnection().prepareStatement(sql);
+            statement.setString(1, r.getNomRandonneur());
+            statement.setString(2, r.getPrenomRandonneur());
+            statement.setDate(3, r.getDateDeNaissance());
+            statement.setInt(4, r.getIdLieu().getIdLieu());
+            statement.setString(5, r.getEmailRandonneur());
+            statement.setString(6, r.getPassword());
+            statement.setInt(7, r.getIdRandonneur());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }
