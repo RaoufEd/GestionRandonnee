@@ -44,7 +44,7 @@ public class RandonneurService {
     public void modifier(Randonneur r) {
 
         String sql = ""
-                + "update personne set nom_randonneur = ? , prenom_randonneur = ?, "
+                + "update randonneur set nom_randonneur = ? , prenom_randonneur = ?, "
                 + " date_de_naissance = ?,id_lieu = ?"
                 + " e_mail_randonneur = ?,mot_de_pass = ?"
                 + "where id_personne = ?";
@@ -62,6 +62,19 @@ public class RandonneurService {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+    
+    
+    public void delete(Randonneur r){
+        String sql = "delete from randonneur where id_randonneur = ?";
+		try {
+			statement = datasource.getConnection().prepareStatement(sql);
+			statement.setInt(1, r.getIdRandonneur());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 }
