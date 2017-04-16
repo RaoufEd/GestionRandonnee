@@ -60,5 +60,23 @@ public class LieuService {
             Logger.getLogger(LieuService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+       public void supprimer(Lieu l) {
+
+        String req = "DELETE FROM lieu WHERE id = ?";
+        try {
+            ste = ds.getConnection()
+                    .prepareStatement(req);
+            ste.setDouble(1, l.getLongitude());
+            ste.setDouble(2, l.getLatitude());
+            ste.setString(3, l.getLieuText());
+            ste.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LieuService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
 }
 >>>>>>> fixed add lieu
