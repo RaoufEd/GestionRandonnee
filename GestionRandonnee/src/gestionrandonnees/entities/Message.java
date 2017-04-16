@@ -20,6 +20,10 @@ public class Message {
         this.dateEnvoi = dateEnvoi;
         this.messageText = messageText;
     }
+    
+    public Message(String messageText) {
+        this.messageText = messageText;
+    }
 
     public int getIdMessage() {
         return IdMessage;
