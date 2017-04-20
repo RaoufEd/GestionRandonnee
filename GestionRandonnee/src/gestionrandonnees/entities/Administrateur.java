@@ -25,6 +25,13 @@ public class Administrateur {
 		this.login = login;
 		Password = password;
 	}
+        
+        public Administrateur( String nom, String prenom, String login) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.login = login;
+	}
 
 	public int getIdAdmin() {
 		return IdAdmin;
