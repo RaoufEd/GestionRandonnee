@@ -47,7 +47,7 @@ public class RandonneurService {
                 + "update randonneur set nom_randonneur = ? , prenom_randonneur = ?, "
                 + " date_de_naissance = ?,id_lieu = ?"
                 + " e_mail_randonneur = ?,mot_de_pass = ?"
-                + "where id_personne = ?";
+                + "where id_randonneur = ?";
         try {
             statement = datasource.getConnection().prepareStatement(sql);
             statement.setString(1, r.getNomRandonneur());
