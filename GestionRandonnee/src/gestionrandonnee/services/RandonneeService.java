@@ -7,7 +7,6 @@ package gestionrandonnee.services;
 
 
 import gestionrandonnees.entities.Randonnee;
-import gestionrandonnees.entities.Randonneur;
 import gestionrandonnees.utils.DataSource;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
