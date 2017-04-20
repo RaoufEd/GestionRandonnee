@@ -7,8 +7,8 @@ package gestionrandonnee.services;
 
 /**
  *
- * @author Raouf
+ * @author heni
  */
-public class LieuService {
+public class MediaService {
     
 }

@@ -35,7 +35,7 @@ public class MessageService {
             ste.getConnection().prepareStatement(query);
             ste.setInt(1, m.getRandonneurEmetteur().getIdRandonneur());
             ste.setInt(2, m.getRandonneurRecepteur().getIdRandonneur());
-            ste.setDate(3, m.getDateEnvoi()); // Change Date Type
+            ste.setDate(3, m.getDateEnvoi()); // Change Date Type "Timestamp"
             ste.setString(4, m.getMessageText());
             ste.executeUpdate();
         } catch (SQLException ex) {
